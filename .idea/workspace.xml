@@ -5,22 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b09fd9bc-55e5-42b3-b30d-c6ef913126ee" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cs3560/a2/AdminControlPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cs3560/a2/Component.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cs3560/a2/MiniTwitter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cs3560/a2/MiniTwitterObserver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cs3560/a2/StatisticsVisitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cs3560/a2/Tweet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cs3560/a2/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cs3560/a2/UserGroup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cs3560/a2/UserView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cs3560/a2/Visitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +86,7 @@
       <option name="presentableId" value="Default" />
       <updated>1717348669773</updated>
       <workItem from="1717348670827" duration="6875000" />
-      <workItem from="1717648975129" duration="6382000" />
+      <workItem from="1717648975129" duration="7970000" />
     </task>
     <servers />
   </component>
