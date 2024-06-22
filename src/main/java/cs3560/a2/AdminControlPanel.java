@@ -187,12 +187,14 @@ public class AdminControlPanel {
         JButton messageTotalButton = new JButton("Show Messages Total");
         JButton positivePercentageButton = new JButton("Show Positive Percentage");
         JButton lastUpdatedUserButton = new JButton("Show Last Updated User");
+        JButton checkValidIDsButton = new JButton("Check Valid IDs");
 
         userTotalButton.addActionListener(e -> displayUserTotal());
         groupTotalButton.addActionListener(e -> displayGroupTotal());
         messageTotalButton.addActionListener(e -> displayMessagesTotal());
         positivePercentageButton.addActionListener(e -> displayPositivePercentage());
         lastUpdatedUserButton.addActionListener(e -> displayLastUpdatedUser());
+        checkValidIDsButton.addActionListener(e -> checkValidIDs());
 
         gbc.gridwidth = 2;
         gbc.gridx = 0;
@@ -213,6 +215,9 @@ public class AdminControlPanel {
         gbc.gridx = 0;
         gbc.gridy = 5;
         panel.add(lastUpdatedUserButton, gbc);
+
+        gbc.gridx = 2;
+        panel.add(checkValidIDsButton, gbc);
     }
 
     private void displayUserTotal() {
@@ -243,6 +248,19 @@ public class AdminControlPanel {
         StatisticsVisitor visitor = new StatisticsVisitor();
         visitAllNodes(rootNode, visitor);
         JOptionPane.showMessageDialog(mainFrame, "Last Updated User: " + visitor.getLastUpdatedUser());
+    }
+
+    private void checkValidIDs() {
+        StatisticsVisitor visitor = new StatisticsVisitor();
+        visitAllNodes(rootNode, visitor);
+        String message;
+        int numInvalidIDs = visitor.getNumInvalidIDs();
+        if (numInvalidIDs > 0) {
+            message = "Invalid IDs: " + numInvalidIDs;
+        } else {
+            message = "All IDs are valid.";
+        }
+        JOptionPane.showMessageDialog(mainFrame, message);
     }
 
     private void visitAllNodes(DefaultMutableTreeNode node, Visitor visitor) {

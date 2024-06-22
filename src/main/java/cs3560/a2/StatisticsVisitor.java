@@ -9,23 +9,29 @@ public class StatisticsVisitor implements Visitor {
     private int groupCount = 0;
     private int tweetCount = 0;
     private int positiveTweetCount = 0;
+    private int numInvalidIDs = 0;
     private User lastUpdatedUser = null;
     private ArrayList<String> positiveWords;
-    private Set<Object> visited;  // To track visited users and groups
+    private Set<String> idsChecked;
+    private Set<Object> visited;
 
     public StatisticsVisitor() {
         positiveWords = new ArrayList<>();
         positiveWords.add("good");
         positiveWords.add("great");
         positiveWords.add("excellent");
-        visited = new HashSet<>();  // Initialize the set
+        idsChecked = new HashSet<>();
+        visited = new HashSet<>();
     }
 
     public void visitUser(User user) {
-        if (!visited.contains(user)) {  // Check if the user has been visited
+        if (!visited.contains(user)) {
             visited.add(user);
             userCount++;
             tweetCount += user.getTweets().size();
+            if (!isValidID(user.getUserId())) {
+                numInvalidIDs++;
+            }
             if (lastUpdatedUser == null || user.getLastUpdateTime() > lastUpdatedUser.getLastUpdateTime()) {
                 lastUpdatedUser = user;
             }
@@ -38,9 +44,12 @@ public class StatisticsVisitor implements Visitor {
     }
 
     public void visitUserGroup(UserGroup userGroup) {
-        if (!visited.contains(userGroup)) {  // Check if the group has been visited
+        if (!visited.contains(userGroup)) {
             visited.add(userGroup);
             groupCount++;
+            if (!isValidID(userGroup.getGroupId())) {
+                numInvalidIDs++;
+            }
             for (Object member : userGroup.getUsers()) {
                 if (member instanceof User) {
                     visitUser((User) member);
@@ -49,6 +58,16 @@ public class StatisticsVisitor implements Visitor {
                 }
             }
         }
+    }
+
+    public boolean isValidID(String id) {
+        if (idsChecked.contains(id)) {
+            return false;
+        }
+        idsChecked.add(id);
+
+        boolean hasSpace = id.contains(" ");
+        return !hasSpace;
     }
 
     public int getUserCount() {
@@ -61,6 +80,10 @@ public class StatisticsVisitor implements Visitor {
 
     public int getTweetCount() {
         return tweetCount;
+    }
+
+    public int getNumInvalidIDs() {
+        return numInvalidIDs;
     }
 
     public String getLastUpdatedUser() {
