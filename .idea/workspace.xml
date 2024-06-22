@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="b09fd9bc-55e5-42b3-b30d-c6ef913126ee" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cs3560/a2/AdminControlPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cs3560/a2/AdminControlPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cs3560/a2/StatisticsVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cs3560/a2/StatisticsVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cs3560/a2/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cs3560/a2/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cs3560/a2/UserGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cs3560/a2/UserGroup.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +90,16 @@
       <option name="presentableId" value="Default" />
       <updated>1717348669773</updated>
       <workItem from="1717348670827" duration="6875000" />
-      <workItem from="1717648975129" duration="7970000" />
+      <workItem from="1717648975129" duration="8273000" />
+      <workItem from="1717724182265" duration="1866000" />
+      <workItem from="1718194175842" duration="601000" />
+      <workItem from="1718259896065" duration="599000" />
+      <workItem from="1718390934670" duration="599000" />
+      <workItem from="1718403371984" duration="599000" />
+      <workItem from="1718805036575" duration="599000" />
+      <workItem from="1718893844783" duration="612000" />
+      <workItem from="1719008113180" duration="770000" />
+      <workItem from="1719063518206" duration="1044000" />
     </task>
     <servers />
   </component>

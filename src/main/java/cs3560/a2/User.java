@@ -3,6 +3,7 @@ package cs3560.a2;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class User implements MiniTwitterObserver {
     private final String userId;
     private final List<User> followers;
@@ -10,6 +11,8 @@ public class User implements MiniTwitterObserver {
     private final List<Tweet> newsFeed;
     private final List<Tweet> tweets;
     UserView userView;
+    long creationTime;
+    long lastUpdateTime;
 
     public User(String userId) {
         this.userId = userId;
@@ -18,6 +21,8 @@ public class User implements MiniTwitterObserver {
         this.newsFeed = new ArrayList<>();
         this.tweets = new ArrayList<>();
         this.userView = null;
+        this.creationTime = System.currentTimeMillis();
+        this.lastUpdateTime = creationTime;
     }
 
     public void follow(User user) {
@@ -42,6 +47,10 @@ public class User implements MiniTwitterObserver {
         }
     }
 
+    public long getLastUpdateTime() {
+        return lastUpdateTime;
+    }
+
     public List<Tweet> getTweets() {
         return tweets;
     }
@@ -59,6 +68,7 @@ public class User implements MiniTwitterObserver {
         if (userView != null) {
             userView.refreshNewsFeed();
         }
+        lastUpdateTime = System.currentTimeMillis();
     }
 
     @Override
@@ -114,6 +124,6 @@ public class User implements MiniTwitterObserver {
 
     @Override
     public String toString() {
-        return userId;
+        return userId + " Created at: " + creationTime;
     }
 }

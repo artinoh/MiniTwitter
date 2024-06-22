@@ -138,6 +138,11 @@ public class AdminControlPanel {
             return;
         }
 
+        if (userId.contains(" ")) {
+            JOptionPane.showMessageDialog(mainFrame, "User ID cannot contain spaces.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
         if (users.containsKey(userId)) {
             JOptionPane.showMessageDialog(mainFrame, "User ID already exists.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
@@ -181,11 +186,13 @@ public class AdminControlPanel {
         JButton groupTotalButton = new JButton("Show Group Total");
         JButton messageTotalButton = new JButton("Show Messages Total");
         JButton positivePercentageButton = new JButton("Show Positive Percentage");
+        JButton lastUpdatedUserButton = new JButton("Show Last Updated User");
 
         userTotalButton.addActionListener(e -> displayUserTotal());
         groupTotalButton.addActionListener(e -> displayGroupTotal());
         messageTotalButton.addActionListener(e -> displayMessagesTotal());
         positivePercentageButton.addActionListener(e -> displayPositivePercentage());
+        lastUpdatedUserButton.addActionListener(e -> displayLastUpdatedUser());
 
         gbc.gridwidth = 2;
         gbc.gridx = 0;
@@ -202,6 +209,10 @@ public class AdminControlPanel {
         gbc.gridx = 2;
         gbc.gridy = 4;
         panel.add(positivePercentageButton, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 5;
+        panel.add(lastUpdatedUserButton, gbc);
     }
 
     private void displayUserTotal() {
@@ -226,6 +237,12 @@ public class AdminControlPanel {
         StatisticsVisitor visitor = new StatisticsVisitor();
         visitAllNodes(rootNode, visitor);
         JOptionPane.showMessageDialog(mainFrame, "Positive Messages Percentage: " + visitor.getPositiveTweetPercentage() + "%");
+    }
+
+    private void displayLastUpdatedUser() {
+        StatisticsVisitor visitor = new StatisticsVisitor();
+        visitAllNodes(rootNode, visitor);
+        JOptionPane.showMessageDialog(mainFrame, "Last Updated User: " + visitor.getLastUpdatedUser());
     }
 
     private void visitAllNodes(DefaultMutableTreeNode node, Visitor visitor) {

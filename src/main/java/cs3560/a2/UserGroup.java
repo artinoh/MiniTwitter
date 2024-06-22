@@ -7,14 +7,15 @@ public class UserGroup {
     private String groupId;
     private List<User> users;
     private List<UserGroup> subgroups;
+    long creationTime;
 
     public UserGroup(String groupId) {
         this.groupId = groupId;
         this.users = new ArrayList<>();
         this.subgroups = new ArrayList<>();
+        this.creationTime = System.currentTimeMillis();
     }
 
-    // Add a user to this group
     public void addUser(User user) {
         if (!users.contains(user)) {
             users.add(user);
@@ -51,7 +52,7 @@ public class UserGroup {
 
     @Override
     public String toString() {
-        return groupId;
+        return groupId + " Created at: " + creationTime;
     }
 
 }

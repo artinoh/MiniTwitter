@@ -9,6 +9,7 @@ public class StatisticsVisitor implements Visitor {
     private int groupCount = 0;
     private int tweetCount = 0;
     private int positiveTweetCount = 0;
+    private User lastUpdatedUser = null;
     private ArrayList<String> positiveWords;
     private Set<Object> visited;  // To track visited users and groups
 
@@ -25,6 +26,9 @@ public class StatisticsVisitor implements Visitor {
             visited.add(user);
             userCount++;
             tweetCount += user.getTweets().size();
+            if (lastUpdatedUser == null || user.getLastUpdateTime() > lastUpdatedUser.getLastUpdateTime()) {
+                lastUpdatedUser = user;
+            }
             for (Tweet tweet : user.getTweets()) {
                 if (tweet.contains(positiveWords)) {
                     positiveTweetCount++;
@@ -57,6 +61,10 @@ public class StatisticsVisitor implements Visitor {
 
     public int getTweetCount() {
         return tweetCount;
+    }
+
+    public String getLastUpdatedUser() {
+        return lastUpdatedUser != null ? lastUpdatedUser.getUserId() : "";
     }
 
     public double getPositiveTweetPercentage() {
